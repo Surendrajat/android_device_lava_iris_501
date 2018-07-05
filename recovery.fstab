@@ -1,0 +1,31 @@
+#
+# Copyright (C) 2018 The TwrpBuilder Open-Source Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+
+/boot           emmc      /dev/bootimg            flags=display="boot";backup=1
+/recovery       emmc      /dev/recovery           flags=display="recovery";backup=1
+/logo           emmc      /dev/logo               flags=display="logo";backup=1
+/uboot          emmc      /dev/uboot              flags=display="uboot";backup=1
+/nvram          emmc      /dev/nvram              flags=display="nvram";backup=1
+/cache          ext4      /emmc@cache
+/data           ext4      /emmc@usrdata
+/apps           ext4      /dev/block/mmcblk0p5    flags=display="apps";backup=1
+/system         ext4      /emmc@android
+/emmc           vfat      /emmc@fat
+/Int_SD         vfat      /dev/block/mmcblk0p6    /dev/block/mmcblk0p6 flags=display="Int_SD";wipeingui
+/sdcard         vfat      /dev/block/mmcblk1p1    /dev/block/mmcblk1
+/sd-ext         auto      /dev/block/mmcblk1p2
+/ebr1           emmc      /dev/block/mmcblk0p1    flags=display="EBR1";backup=1
